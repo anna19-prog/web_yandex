@@ -1,0 +1,99 @@
+{% extends "base.html" %} {% block title %}главная{% endblock %}
+
+{% block content %}
+<div id="search">
+        <div class="container">
+            <form class="has-success has-feedback has-feedback-left">
+                <input class="form-control" type="text" id="inputSearch" placeholder="поиск рецептов">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                <button class="btn" type="submit">искать</button>
+            </form>
+        </div>
+</div>
+<h1 align="center">РЕЦЕПТЫ</h1>
+<main>
+  <!-- Контент -->
+  <div class="container overflow-hidden text-center">
+    <div class="row gy-5">
+      <div class="col-6">
+        <div class="p-3">
+          <div class="center">
+            <figure class="figure">
+              <img src="static/images/n1.webp" class="figure-img img-fluid rounded" alt="...">
+              <figcaption class="figure-caption">
+                <h2 class="text-dark">Картофельный суп с фрикадельками</h2>
+                <h4>Картофельный суп с фрикадельками можно смело предложить детям: они точно оценят его по достоинству. Секрет такого «волшебства» невероятно прост!</h4>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" type="button">Сохранить</button>
+        </div>            
+      </div>
+
+      <div class="col-6">
+        <div class="p-3">
+          <div class="center">
+            <figure class="figure">
+              <img src="static/images/n3.webp" class="figure-img img-fluid rounded" alt="...">
+              <figcaption class="figure-caption">
+                <h2 class="text-dark">Зеленый салат с орехами и фетой</h2>
+                <h4>Если вы едите салаты каждый день, то знаете, как непросто бывает придумать новый вариант любимого блюда. Наш рецепт поможет вам найти вдохновение</h4>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" type="button">Сохранить</button>
+        </div>            
+      </div>
+
+      <div class="col-6">
+        <div class="p-3">
+          <div class="center">
+            <figure class="figure">
+              <img src="static/images/n2.webp" class="figure-img img-fluid rounded" alt="...">
+              <figcaption class="figure-caption">
+                <h2 class="text-dark">Шашлычки из индейки на шпажках в духовке</h2>
+                <h4>Шашлычки из индейки на шпажках в духовке — блюдо очень гармоничное, идеально сбалансированное по текстуре, вкусу и аромату. Кажется, здесь предусмотрено и скомпенсировано все!</h4>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" type="button">Сохранить</button>
+        </div>            
+      </div>
+
+      <div class="col-6">
+        <div class="p-3">
+          <div class="center">
+            <figure class="figure">
+              <img src="static/images/n4.webp" class="figure-img img-fluid rounded" alt="...">
+              <figcaption class="figure-caption">
+                <h2 class="text-dark">Праздничные канапе с салями</h2>
+                <h4>Канапе с салями хорошее дополнение к канапе с мясом и слабосоленой рыбой для праздничного фуршетного стола.</h4>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" type="button">Сохранить</button>
+        </div>            
+      </div>
+    </div>
+  </div>
+</main>
+{% for item in recipes %}
+<div class="col-md6 border rounded">
+    <h2>{{item.title}}</h2>
+    <div>
+        {{item.ingridients}}
+    </div>
+    <div>
+        Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
